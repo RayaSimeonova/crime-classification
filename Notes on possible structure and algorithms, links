@@ -1,0 +1,31 @@
+Formatting data’
+1.	Date - read Dates as Timestamp, and split and convert the Timestamp data. It is not necessary to convert the data to minutes and seconds, but we can assume that we can perform effective lineplotting by converting the data to hours. This will allow for effective visualization to a third party. For example, what time of the day has the highest crime rate using the .count() statistic.
+2.	Shape date into morning – afternoon - night
+*https://www.kaggle.com/code/shinichioto/folium-and-other-visualization-models-etc
+
+Visualization
+1.	Latitude and longitude scatterplot + remove any obvious outliers (as in it’s in another city by mistake)
+2.	Heatmap – number of crimes? (see*)
+3.	Most common crime histogram
+4.	Type of crime per district as number table
+5.	Categories count per district histogram
+6.	Weekend and weekday crimes, per hour
+7.	Crime hotspots? https://www.kaggle.com/code/lennartxt/data-visualization
+
+
+Prediction of category (lots of ready projects)(type of crime and how many times it happened***)
+1.	Linear regression
+2.	kNN
+3.	Radom forest
+4.	eXtreme Gradient Boosting? - https://www.kaggle.com/code/yannisp/sf-crime-analysis-prediction
+
+
+Prediction of time
+
+Visualization of predicted data?
+
+Links: **https://www.kaggle.com/code/bananawolf/random-forest-knn-logistic-regression#Label-Encoding
+Note: needs accuracy scores to be added, maybe explore for different k-s (***https://www.kaggle.com/code/prashant111/knn-classifier-tutorial)
+kNN and logistic - ***https://www.kaggle.com/code/nitinvijay23/predict-the-crime-category-knn-logistic
+kNN: https://www.kaggle.com/code/wawanco/k-nearest-neighbour/script
+Random forest - https://www.kaggle.com/code/guidosalimbeni/random-forest-crime-classification#Random-Forest
