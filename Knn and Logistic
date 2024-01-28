@@ -1,0 +1,44 @@
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import log_loss
+from sklearn.preprocessing import LabelEncoder
+
+X = data.drop(columns=['Category'])
+y = data['Category']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=4330)
+#label encoding - Category, DayOfWeek, Season, HourRange;
+#no one-hot;
+
+le = LabelEncoder()
+le.fit(["Category", "DayOfWeek", "Season", "HourRange"])
+
+def model_result(model):
+    train_acc = model.score(X_train, y_train)
+    train_loss = log_loss(y_train, model.predict_proba(X_train))
+    test_acc = model.score(X_test, y_test)
+    test_loss = log_loss(y_test, model.predict_proba(X_test))
+    matrix = confusion_matrix(y_test, model.predict_proba(X_test))
+    
+    
+    return train_acc, train_loss, test_acc, test_loss, matrix
+
+knn_model = KNeighborsClassifier(n_neighbors=5)
+knn_model.fit(X_train, y_train)
+print(model_result(knn_model))
+
+knn_model = KNeighborsClassifier(n_neighbors=10)
+knn_model.fit(X_train, y_train)
+print(model_result(knn_model))
+
+knn_model = KNeighborsClassifier(n_neighbors=20)
+knn_model.fit(X_train, y_train)
+print(model_result(knn_model))
+
+from sklearn.linear_model import LogisticRegression
+#logistic_regression_model = LogisticRegression()
+#logistic_regression_model.fit(X_train, y_train)
+#print(model_result(logistic_regression_model))
+
+#error message - maximum number of iterations reached; use regularisation
+
+logistic_regression_model = LogisticRegression(C=10, max_iter=10000).fit(X_train, y_train)
+print(model_result(logistic_regression_model))
